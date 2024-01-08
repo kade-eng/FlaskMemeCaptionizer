@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Meme Captionizer</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="../static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Is AI Funny?</h1>
+         <form class="upload-form" method="POST" enctype="multipart/form-data" action="{{ url_for('predict') }}">
+            <label for="image-upload">Choose Image</label>
+            <input type="file" id="image-upload" name="image" onchange="handleImagePreview(event)">
+            <input id="sub" type="submit" value="Meme">
+        </form>
+        <div id="image-preview-container" class="image-preview-container">
+            <img id="image-preview" class="selected-image" alt="Selected Image">
+        </div>
+        <img src="static/output_image.jpg" class="displayed-image" alt="Displayed Image">
+        <div id="result-text" class="result-text">{{ predicted_label }}</div>
+    </div>
+</body>
+</html>
